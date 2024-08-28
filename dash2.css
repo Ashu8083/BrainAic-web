@@ -358,7 +358,7 @@ body > * {
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #495E57;
+    color: #060606;
 }
 .course-container {
     display: flex;
@@ -385,6 +385,8 @@ body > * {
 }
 
 .course-card img {
+    padding: 8px;
+    border-radius: 10px;
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -432,9 +434,7 @@ body > * {
 
 /* Courses Section Styling */
 #courses {
-    color: #333;
-    background: url("image/1.png") no-repeat center center;
-    background-size: cover; /* Ensure the image covers the container */
+    color: #f7f7f7;
     padding-top: 80px; 
     padding-bottom: 50px; 
     position: relative;
@@ -504,6 +504,7 @@ body > * {
 .right-container p {
     font-size: 1.2em;
     color: #ededed;
+    font-family: Playfair Display;
     line-height: 1.6;
     text-align: justify;
 }
@@ -519,11 +520,12 @@ body > * {
     padding-bottom: 78px;
     position: relative; /* Make sure the pseudo-element is positioned relative to the parent */
     display: flex;
+    background: url("image/back.png") no-repeat center;
+    background-size: cover;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 80vh; /* Ensures the section takes up the full viewport height */
-    background: url("image/1.png") no-repeat center center;
     background-size: cover; /* Ensure the image covers the container *//* Solid background color */
     overflow: hidden; /* Ensure the pseudo-element doesn’t overflow the section */
 }
@@ -774,6 +776,11 @@ footer {
     border-radius: 0 20px 20px 0;
     cursor: pointer;
 }
+.subscribe-btn :hover{
+    background: #b6ccfe;
+    transform: scale(1.02);
+
+}
 
 .footer-links {
     display: flex;
@@ -837,7 +844,7 @@ footer {
 }
 
 .footer-bottom ul li a:hover {
-    color: #85e037;
+    color: #275277;
 }
 @media (max-width: 539px) {
     footer{
