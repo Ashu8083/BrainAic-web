@@ -358,18 +358,38 @@ body > * {
     margin-bottom: 20px;
     color: #495E57;
 }
+#courses {
+    position: relative;
+    color: #333;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent content overflow */
+}
 
-/* Course Container Styling */
+#courses-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place the video behind other content */
+}
+
 .course-container {
+    position: relative;
+    z-index: 1; /* Ensure course content is above the video */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px;
 }
 
-
 .course-card {
-    background-color: #b6ccfe;
+    background-color: rgba(182, 204, 254, 0.8); /* Semi-transparent background to improve text readability */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(67, 67, 67, 0.1);
     width: 30%;
@@ -406,7 +426,6 @@ body > * {
     color: #555;
 }
 
-/* Button Styling */
 .btn {
     background-color: #EDB552;
     color: white;
@@ -421,30 +440,19 @@ body > * {
     background-color: #EDB552;
 }
 
-/* Mobile Responsive Course Cards */
 @media screen and (max-width: 768px) {
     .course-card {
-        width: 100%; /* Make course cards full width */
-        margin: 10px 0; /* Reduce margin for better fit */
+        width: 100%; /* Make course cards full width on smaller screens */
+        margin: 10px 0;
     }
 }
 
-/* Courses Section Styling */
-#courses {
-    color: #333;
-    padding-top: 80px; 
-    padding-bottom: 50px; 
-    position: relative;
-    width: 100%;
-    min-height: 100vh; 
-    box-sizing: border-box; 
-}
 
 /* About Section Styling */
 #about {
     padding-top: 78px;
     position: relative;
-    background:rgb(56, 14, 208);
+    background: rgb(56, 14, 208); /* Adjusted background color */
     background-size: cover; /* Ensure the image covers the container */
     width: 100%;
     min-height: 100vh;
@@ -474,7 +482,7 @@ body > * {
     flex: 1; /* Take up available space */
     margin-top: 80px;
     padding-right: 20px; /* Space between image and content */
-    margin-right:-40px;
+    margin-right: -40px; /* Adjust margin as needed */
 }
 
 .left-container img {
@@ -486,11 +494,13 @@ body > * {
 .right-container {
     margin-top: 80px;
     flex: 2; /* Take up more space than the left-container */
+    animation: textAnimation 2s ease-in-out infinite; /* Apply the animation */
 }
 
 .right-container h2 {
     font-size: 2.5em;
     color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 20px;
 }
 
@@ -504,14 +514,7 @@ body > * {
 
 
 /* Advantage Section Styling */
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
-}
+
 
 /* General Styles for #advantage */
 #advantage {
@@ -584,7 +587,7 @@ body > * {
     display: flex;
     align-items: center; /* Vertically center the content */
     background: #b6ccfe;
-    border: 1px solid #abc4ff;
+    border: 2px solid #899ed0;
     border-radius: 4px;
     color: white;
     padding: 15px;
