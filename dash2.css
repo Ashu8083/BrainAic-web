@@ -25,6 +25,7 @@ body > * {
 
 
 /* Default Header Styles */
+/* Default Header Styles */
 .header {
     overflow: hidden;
     background-color: #ffffff00;
@@ -32,9 +33,9 @@ body > * {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000; /* Ensure navbar is on top of other content */
+    z-index: 1000;
     display: flex;
-    justify-content: space-between; /* Distribute space evenly */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -84,27 +85,42 @@ body > * {
 /* Hide the menu and display the icon on smaller screens */
 @media (max-width: 768px) {
     .header {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center align elements */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .header-center {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        align-items: center; /* Center align links */
+    .header img {
+        order: 1; /* Ensure logo is on the left */
     }
 
-    .header-right {
-        display: none;
-    }
-
+    /* Display the icon only on mobile screens */
     .icon {
         display: block;
         cursor: pointer;
         font-size: 24px;
         color: #EDB552;
-        margin-top: 10px;
+        margin-right: 10px;
+        order: 2; /* Ensure icon is on the right */
+    }
+
+    /* Hide icon on larger screens */
+    @media (min-width: 769px) {
+        .icon {
+            display: none;
+        }
+    }
+
+    .header-center {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust according to header height */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-black background */
+        padding: 20px 0;
+        text-align: center;
     }
 
     .header-center.show {
@@ -113,15 +129,19 @@ body > * {
 
     .header-center a {
         display: block;
-        text-align: center;
-        padding: 10px;
+        color: #EDB552;
+        padding: 10px 0;
         border-bottom: 1px solid #ddd;
-        width: 100%;
     }
 
     .header-center a:hover {
         background-color: #051124;
         color: #23A9E6;
+    }
+    
+    /* Semi-transparent background when menu is open */
+    .header.show {
+        background-color: rgba(0, 0, 0, 0.7);
     }
 }
 
