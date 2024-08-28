@@ -28,7 +28,7 @@ body > * {
 /* Default Header Styles */
 .header {
     overflow: hidden;
-    background-color: #ffffff00;
+    background-color: #abc4ff;
     padding: 15px 10px;
     position: fixed;
     width: 100%;
@@ -62,7 +62,7 @@ body > * {
 /* Links inside the header */
 .header a {
     float: left;
-    color: #EDB552;
+    color: #edf2fb;
     text-align: center;
     padding: 12px;
     text-decoration: none;
@@ -72,14 +72,13 @@ body > * {
 }
 
 .header a:hover {
-    background-color: #051124;
+    background-color: #c1d3fe;
     color: #23A9E6;
 }
 
 /* Active link styling */
 .header a.active {
-    background-color: #29cf2f;
-    color: white;
+    background-color: #b6ccfe;
 }
 
 /* Hide the menu and display the icon on smaller screens */
@@ -160,29 +159,11 @@ body > * {
 }
 
 .page:nth-child(odd) {
-    background-color: #f4f4f4;
+    background-color: #d7e3fc;
 }
 
 .page:nth-child(even) {
-    background-color: #ddd;
-}
-.page2 {
-    width: 100%;
-    position: relative;
-    box-sizing: border-box;
-    
-}
-
-.page2:not(:last-child) {
-    margin-bottom: 0;
-}
-
-.page:nth-child(odd) {
-    background-color: #f4f4f4;
-}
-
-.page:nth-child(even) {
-    background-color: #ddd;
+    background-color: #ccdbfd;
 }
 
 /* Container styling */
@@ -388,7 +369,7 @@ body > * {
 
 
 .course-card {
-    background-color: #85e037;
+    background-color: #b6ccfe;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(67, 67, 67, 0.1);
     width: 30%;
@@ -463,12 +444,15 @@ body > * {
 #about {
     padding-top: 78px;
     position: relative;
+    background:rgb(56, 14, 208);
+    background-size: cover; /* Ensure the image covers the container */
     width: 100%;
     min-height: 100vh;
-    overflow: hidden;
-    justify-content: center; /* Ensure no overflow from waves *//* Allows absolute positioning for the pseudo-element */
-    overflow: hidden;
+    overflow: hidden; /* Ensure no overflow from content */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center;
 }
+
 #about::before {
     content: "";
     position: absolute;
@@ -477,40 +461,47 @@ body > * {
     width: 100%;
     height: 100%;
     background: inherit; /* Inherit the background from the parent */
-    filter: blur(10px); /* Apply the blur effect */
     z-index: -1; /* Place the pseudo-element behind the content */
 }
-.about-container {
-    position: relative; /* Ensure content is above the background */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 50px;
+
+.container {
+    display: flex; /* Use flexbox to align left and right containers side by side */
+    width: 100%;
     max-width: 1200px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0 auto; /* Background color of the content */
-    z-index: 1; /* Ensure content is above the background */
-    position: relative;
-    padding: 20px;
-   /* Semi-transparent background for readability */
-    border-radius: 8px; /* Optional: add rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.about-container h2 {
+.left-container {
+    flex: 1; /* Take up available space */
+    margin-top: 80px;
+    padding-right: 20px; /* Space between image and content */
+    margin-right:-40px;
+}
+
+.left-container img {
+    max-width: 100%; /* Ensure image scales properly */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+}
+
+.right-container {
+    margin-top: 80px;
+    flex: 2; /* Take up more space than the left-container */
+}
+
+.right-container h2 {
     font-size: 2.5em;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
-.about-container p {
+.right-container p {
     font-size: 1.2em;
-    color: #0f0f0f;
+    color: #ededed;
     line-height: 1.6;
     text-align: justify;
 }
+
+
 
 /* Advantage Section Styling */
 @keyframes gradientAnimation {
@@ -592,9 +583,10 @@ body > * {
 .advantage-option {
     display: flex;
     align-items: center; /* Vertically center the content */
-    background: #00171f;
-    border: 1px solid #000000;
+    background: #b6ccfe;
+    border: 1px solid #abc4ff;
     border-radius: 4px;
+    color: white;
     padding: 15px;
     margin-bottom: 40px;
     cursor: pointer;
@@ -603,9 +595,8 @@ body > * {
 }
 
 .advantage-option:hover {
-    background: #08080855;
-    color: #000000;
-    transform: scale(1.02);
+    background: #b6ccfe;
+    transform: scale(1.02);s
 }
 
 /* Logo Styles */
@@ -615,7 +606,7 @@ body > * {
     width: 30px; /* Reduce logo width */
     height: auto; /* Maintain aspect ratio */
     margin-right: 30px; /* Space between logo and text */
-    flex-shrink: 0; /* Prevent logo from shrinking */
+    flex-shrink:0; /* Prevent logo from shrinking */
 }
 
 /* Text Information Styles */
@@ -625,7 +616,6 @@ body > * {
 }
 
 .advantage-info h3 {
-    color: #ffffff;
     font-size: 1.2em;
     margin: 0;
 }
@@ -633,7 +623,7 @@ body > * {
 .advantage-info p {
     font-size: 0.9em;
     margin: 0;
-    color: #b1b1b1; /* Adjust text color as needed */
+    /* Adjust text color as needed */
 }
 
 /* Right Side Styles */
@@ -745,7 +735,7 @@ body > * {
 
 /* Footer styles */
 footer {
-    background-color: #111;
+    background-color: #abc4ff;
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -776,7 +766,7 @@ footer {
 .newsletter .subscribe-btn {
     padding: 10px 20px;
     border: none;
-    background-color: #85e037;
+    background-color: #c1d3fe;
     color: #111;
     border-radius: 0 20px 20px 0;
     cursor: pointer;
