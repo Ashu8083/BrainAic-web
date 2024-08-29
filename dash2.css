@@ -520,8 +520,7 @@ body > * {
     padding-bottom: 78px;
     position: relative; /* Make sure the pseudo-element is positioned relative to the parent */
     display: flex;
-    background: url("image/back.png") no-repeat center;
-    background-size: cover;
+
     justify-content: center;
     align-items: center;
     width: 100%;
