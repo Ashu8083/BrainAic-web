@@ -46,12 +46,14 @@ body{background-color: #a8bded4c;}
     text-decoration: none;
     font-size: 1em;
     transition: color 0.3s ease;
+    font-family: 'Poppins';
 }
 
 .navbar .nav-links a:hover,
 .navbar .nav-links a.active {
     color: #3498DB; /* Bright blue for hover and active links */
     font-weight: bold;
+    font-family: 'Poppins';
 }
 
 
@@ -80,6 +82,9 @@ body{background-color: #a8bded4c;}
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Align content in the box */
+}
+.content-box p{
+    padding-top: 8%;
 }
 
 .content-box:hover {
@@ -132,29 +137,7 @@ body{background-color: #a8bded4c;}
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.slide {
-    display: none; /* Hide slides by default */
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
 
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.text {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    color: #ECF0F1; /* Light grey text color */
-    font-size: 1.2em;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    padding: 10px 20px;
-    border-radius: 5px;
-}
 
         /* Header Section */
         .certify-header {
@@ -162,18 +145,21 @@ body{background-color: #a8bded4c;}
             padding: 100px 20px;
             background-color: #abc4ff;
             color: #101010;
+            
         }
 
         .certify-header h1 {
             font-size: 3em;
             margin-bottom: 20px;
             color: #101010;
+            font-family: 'Poppins';
         }
 
         .certify-header p {
             font-size: 1.2em;
             margin-bottom: 40px;
-            color: #101010;
+            color: #000000;
+            font-family: 'Poppins';
         }
 
         .get-certified-btn {
@@ -207,6 +193,7 @@ body{background-color: #a8bded4c;}
             width: 250px;
             text-align: center;
             color: #101010;
+            font-family: "poppins";
         }
 
         .step-card img {
@@ -236,6 +223,7 @@ body{background-color: #a8bded4c;}
             font-size: 2em;
             margin-bottom: 20px;
             color: #101010;
+            font-family: 'Poppins';
         }
 
         .certificate-info p {
