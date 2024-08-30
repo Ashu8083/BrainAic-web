@@ -25,12 +25,11 @@ body > * {
 
 
 /* Default Header Styles */
-/* Default Header Styles */
 .header {
     overflow: hidden;
     background-color: #abc4ff;
     border: 2px solid #7e91bd;
-    padding: 15px 10px;
+    padding: 15px 8px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -69,19 +68,61 @@ body > * {
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
-    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s;
 }
 
-.header a:hover {
-    background-color: #c1d3fe;
-    border: 2px solid #899ed0;
-    color: #23A9E6;
+/* Glowing bar effect on hover */
+.header a {
+    float: left;
+    color: #edf2fb;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Glowing bar effect on hover and active link */
+.header a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px; /* Thickness of the bar */
+    background: linear-gradient(to right, #23A9E6, #c1d3fe); /* Gradient effect */
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.header a:hover::after,
+.header a.active::after {
+    opacity: 1;
+    transform: scaleX(1);
 }
 
 /* Active link styling */
 .header a.active {
-    background-color: #b6ccfe;
+    color: #23A9E6; /* Change text color for the active link */
+    background-color: #b6ccfe00; /* Optional: Change background color for the active link */
+    border: 2px solid #899ed000; /* Optional: Border styling for the active link */
+    transform: scale(1.2); /* Scale up the active link */
+    z-index: 1; /* Ensure the active link is above others */
 }
+
+/* Add a hover effect */
+.header a:hover {
+    background-color: #c1d3fe00;
+    border: 2px solid #899ed000;
+    color: #23A9E6;
+}
+
 
 /* Hide the menu and display the icon on smaller screens */
 @media (max-width: 768px) {
@@ -146,14 +187,17 @@ body > * {
     }
 }
 
+
 /* Page Styling */
 .page {
     width: 100%;
-    min-height: 100vh;
-
-    position: relative;
+    min-height: 100vh; /* Ensure it takes up at least the full viewport height */
     box-sizing: border-box;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    padding: 0;
+    margin: 0;
 }
 
 .page:not(:last-child) {
@@ -161,7 +205,7 @@ body > * {
 }
 
 .page:nth-child(odd) {
-    background-color: #d7e3fc;
+    background-color: #ccdbfdc1;
 }
 
 .page:nth-child(even) {
@@ -354,102 +398,117 @@ body > * {
 }
 
 /* Section Title Styling */
-.section-title {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #060606;
+.page2{
+    width: 100%;
+    min-height: 100vh; /* Ensure it takes up at least the full viewport height */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    padding: 0;
+    margin: 0;
 }
+.section-title {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+#courses {
+    background: url("image/");
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    padding: 20px; /* Add some padding if needed */
+}
+
 .course-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
+    flex-direction: column;
+    width: 75%;
+    max-width: 1200px; /* Optional: Limits the maximum width */
+    gap: 20px;
+    padding: 10px;
+    height: 100%;
+    margin: 0 auto; /* Centers the container horizontally */
+    box-sizing: border-box;
+    background-color: #d7e3fc; /* Optional: Adds a semi-transparent background to the course container */
 }
 
+.course-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%; /* Ensure items take up full width of the container */
+    max-width: 100%;
+}
 
-.course-card {
-    background-color: #c1d3fe;
-    border: 2px solid #899ed0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(67, 67, 67, 0.1);
-    width: 30%;
+.course-item:nth-child(odd) {
+    flex-direction: row; /* Image on the left and description on the right for odd items */
+}
+
+.course-item:nth-child(even) {
+    flex-direction: row-reverse; /* Image on the right and description on the left for even items */
+}
+
+.course-image {
+    width: 30%; /* Adjust image size here */
+    max-width: 100%; /* Ensure the image does not overflow its container */
     height: auto;
-    margin: 20px 0;
-    overflow: hidden;
-    transition: transform 0.3s;
 }
 
-.course-card:hover {
-    transform: scale(1.05);
+.course-description {
+    width: 65%; /* Adjust description width accordingly */
+    padding: 10px;
+    font-size: 1em; /* Adjust font size to fit better */
+    line-height: 1.4;
+    box-sizing: border-box;
+    position: relative; /* For positioning close button if needed */
 }
 
-.course-card img {
-    padding: 8px;
-    border-radius: 10px;
+.course-subheading {
+    font-size: 1.2em; /* Adjust size of the subheading */
+    font-weight: bold;
+    margin-bottom: 10px; /* Space below the subheading */
+}
+
+/* Divider Styling */
+.divider {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 2px; /* Thickness of the divider */
+    background: linear-gradient(to right, #c1d3fe, #207eb8, #c1d3fe); /* Gradient effect */
+    margin: 20px 0; /* Space above and below the divider */
 }
 
-.course-content {
-    padding: 15px;
-    text-align: center;
-}
+/* Adjusting the layout for smaller screens */
+@media (max-width: 768px) {
+    .course-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 0; /* Remove side padding on smaller screens */
+    }
 
-.course-content h3 {
-    color: #1b1b1b;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
+    .course-image {
+        width: 100%;
+    }
 
-.course-content p {
-    font-size: 1em;
-    margin-bottom: 15px;
-    color: #555;
-}
+    .course-description {
+        width: 100%;
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
 
-/* Button Styling */
-.btn {
-    background-color: #EDB552;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #EDB552;
-}
-
-/* Mobile Responsive Course Cards */
-@media screen and (max-width: 768px) {
-    .course-card {
-        width: 100%; /* Make course cards full width */
-        margin: 10px 0; /* Reduce margin for better fit */
+    .course-subheading {
+        font-size: 1.1em; /* Adjust size for smaller screens */
     }
 }
-
-/* Courses Section Styling */
-#courses {
-    color: #f7f7f7;
-    padding-top: 80px; 
-    padding-bottom: 50px; 
-    position: relative;
-    width: 100%;
-    min-height: 100vh; 
-    box-sizing: border-box; 
-}
-
 
 
 /* About Section Styling */
 #about {
     padding-top: 78px;
     position: relative;
-    background: rgb(56, 14, 208); /* Adjusted background color */
+    background: #899ed0;; /* Adjusted background color */
     background-size: cover; /* Ensure the image covers the container */
     width: 100%;
     min-height: 100vh;
@@ -496,14 +555,14 @@ body > * {
 
 .right-container h2 {
     font-size: 2.5em;
-    color: #ffffff;
+    color: #000000;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 20px;
 }
 
 .right-container p {
     font-size: 1.2em;
-    color: #ededed;
+    color: #000000;
     font-family: Playfair Display;
     line-height: 1.6;
     text-align: justify;
@@ -520,7 +579,6 @@ body > * {
     padding-bottom: 78px;
     position: relative; /* Make sure the pseudo-element is positioned relative to the parent */
     display: flex;
-
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -588,7 +646,7 @@ body > * {
     background: #b6ccfe;
     border: 2px solid #899ed0;
     border-radius: 4px;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 15px;
     margin-bottom: 40px;
     cursor: pointer;
@@ -630,8 +688,9 @@ body > * {
 
 /* Right Side Styles */
 .right-side {
-    width: 65%;
-    min-width: 300px;
+    width: 55%;
+    min-width: 200px;
+    height: 60%;
     position: relative;
 }
 
@@ -719,84 +778,73 @@ body > * {
 /* General page styles */
 
 /* Specific styles for footer-page */
+/* Footer Section Styles */
 .footer-page {
-    background-color: #f4f4f4; /* Light background color */
-    color: #333; /* Dark text color for contrast */
-    text-align: center;
-    min-height: auto; /* Ensure it covers the viewport height */
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+    color: #333;
 }
 
-.footer-page h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.footer-page p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-/* Footer styles */
 footer {
-    background-color: #abc4ff;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .newsletter {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
-.newsletter input[type="email"] {
+.newsletter input {
     padding: 10px;
-    border: 1px solid #333;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-    width: 300px;
-    max-width: 100%;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 400px;
 }
 
-.newsletter .subscribe-btn {
+.subscribe-btn {
     padding: 10px 20px;
+    background-color: #19549F;
+    color: #fff;
     border: none;
-    background-color: #c1d3fe;
-    border: 2px solid #899ed0;
-    color: #111;
-    border-radius: 0 20px 20px 0;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
-.subscribe-btn :hover{
-    background: #b6ccfe;
-    transform: scale(1.02);
 
+.subscribe-btn:hover {
+    background-color: #0f3d7e;
 }
 
 .footer-links {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 40px;
 }
 
 .footer-column {
-    margin: 0 20px;
-    text-align: left;
+    flex: 1;
+    margin-right: 20px;
 }
 
 .footer-column h4 {
+    font-size: 1.5em;
     margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: bold;
+    color: #19549F;
 }
 
 .footer-column ul {
@@ -805,23 +853,22 @@ footer {
     margin: 0;
 }
 
-.footer-column ul li {
-    margin-bottom: 8px;
+.footer-column li {
+    margin-bottom: 10px;
 }
 
-.footer-column ul li a {
-    color: #fff;
+.footer-column a {
+    color: #19549F;
     text-decoration: none;
-    font-size: 14px;
     transition: color 0.3s;
 }
 
-.footer-column ul li a:hover {
-    color: #85e037;
+.footer-column a:hover {
+    color: #0f3d7e;
 }
 
 .footer-bottom {
-    margin-top: 20px;
+    text-align: center;
 }
 
 .footer-bottom ul {
@@ -832,21 +879,16 @@ footer {
     justify-content: center;
 }
 
-.footer-bottom ul li {
-    margin: 0 10px;
+.footer-bottom li {
+    margin: 0 15px;
 }
 
-.footer-bottom ul li a {
-    color: #fff;
+.footer-bottom a {
+    color: #19549F;
     text-decoration: none;
-    font-size: 12px;
+    transition: color 0.3s;
 }
 
-.footer-bottom ul li a:hover {
-    color: #275277;
-}
-@media (max-width: 539px) {
-    footer{
-        margin-top: 20px;
-    }
+.footer-bottom a:hover {
+    color: #0f3d7e;
 }

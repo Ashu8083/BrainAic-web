@@ -1,0 +1,295 @@
+/* General Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
+}
+body{background-color: #a8bded4c;}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #9dbafd; /* Dark navy blue background */
+    color: #ECF0F1; /* Light grey text color */
+    padding: 15px 20px; /* Padding for the navbar */
+    z-index: 1000; /* Ensure the navbar is above other content */
+    display: flex;
+    justify-content: space-between; /* Space out brand and links */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar .brand img {
+    height: 50px; /* Adjust height as needed */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.navbar .nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Space between links */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    display: inline;
+}
+
+.navbar .nav-links a {
+    color: #ECF0F1; /* Light grey text color */
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+    color: #3498DB; /* Bright blue for hover and active links */
+    font-weight: bold;
+}
+
+
+/* Content Styles for Other Sections */
+.container {
+    margin-top: 80px; /* Ensure content is below the fixed navbar */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between content boxes */
+    justify-content: space-between;
+    margin-left:80px;
+    margin-right:80px ;
+}
+
+/* Content Box Styles */
+.content-box {
+    background-color: #FFFFFF; /* White background for content boxes */
+    border: 1px solid #BDC3C7; /* Light grey border */
+    border-radius: 10px;
+    padding: 30px; /* Increased padding for larger boxes */
+    flex: 1 1 calc(33% - 20px); /* Adjust width as needed */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 250px; /* Set a minimum height for boxes */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align content in the box */
+}
+
+.content-box:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.content-box img {
+    width: 50px; /* Adjust icon size */
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.content-box h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.content-box p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.content-box a {
+    text-decoration: none;
+    color: #FFFFFF; /* White text color */
+    background-color: #3498DB; /* Bright blue background */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.content-box a:hover {
+    background-color: #2980B9; /* Darker blue on hover */
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    width: 60%; /* Width of the slideshow */
+    height: 30vh; /* Height of the slideshow */
+    margin: 40px auto; /* Center the slideshow container */
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide {
+    display: none; /* Hide slides by default */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #ECF0F1; /* Light grey text color */
+    font-size: 1.2em;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+        /* Header Section */
+        .certify-header {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #abc4ff;
+            color: #101010;
+        }
+
+        .certify-header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #101010;
+        }
+
+        .certify-header p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #101010;
+        }
+
+        .get-certified-btn {
+            background-color: #b6ccfe;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .get-certified-btn:hover {
+            background-color: #c1d3fe;
+        }
+
+        /* Certification Steps Section */
+        .certify-steps {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 20px;
+            flex-wrap: wrap;
+        }
+
+        .step-card {
+            background-color: #ccdbfd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            color: #101010;
+        }
+
+        .step-card img {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+
+        .step-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Certificate Section */
+        .certificate-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 100px 20px;
+        }
+
+        .certificate-info {
+            flex: 1;
+            padding-right: 20px;
+            margin-left: 30px;
+        }
+
+        .certificate-info h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #101010;
+        }
+
+        .certificate-info p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            color: #101010;
+        }
+
+        .certificate-image {
+            flex: 1;
+            text-align: center;
+            margin-right: 30px;
+        }
+
+        .certificate-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+    
+        .progress-bar {
+            position: relative;
+            background: #e0e0e0; /* Background of the progress bar */
+            border-radius: 10px;
+            height: 15px; /* Height of the progress bar */
+            overflow: hidden;
+            margin-bottom:10px;
+        }
+        
+        .progress-fill {
+            background: #abc4ff; /* Green color for progress */
+            height: 100%;
+            text-align: center;
+            color: rgb(233, 228, 228);
+            line-height: 30px; /* Center text vertically */
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out; /* Smooth width transition */
+        }
+        
+        .progress-text {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: #272626;
+        }
+        .brand-name {
+            color: #000000;
+            font-family: 'League Spartan', sans-serif
+        }
+        
+        .highlight {
+            color: rgba(83, 113, 255); /* Green color for AI */
+            text-shadow: 1px 1px 2px rgba(83, 113, 255, 0.5); /* Shadow for a standout effect */
+        }
+        

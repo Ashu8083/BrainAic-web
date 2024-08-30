@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Platform</title>
+    <link rel="stylesheet" href="dash-style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html" class="brand">
+            <img src="image/BrainAlc (1).png" alt="Learning Platform Logo">
+        </a>
+        <div class="nav-links">
+            <ul>
+                <li class="nav-item active"><a href="dashboard.html">Prepare</a></li>
+                <li class="nav-item"><a href="certify.html">Certify</a></li>
+                <li class="nav-item"><a href="#">Compete</a></li>
+                <li class="nav-item"><a href="#">Apply</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    
+
+    <!-- Content Boxes -->
+    <div class="container">
+    <div class="content-box">
+        <h3><img src="icon1.png" alt="Icon"> English Aptitude</h3>
+        <p>Enhance your English skills with tailored exercises, practice tests, and comprehensive quizzes.</p>
+        <a href="#">Find out more</a>
+    </div>
+    <div class="content-box">
+        <h3><img src="icon2.png" alt="Icon"> General Knowledge</h3>
+        <p>Expand your knowledge with curated challenges and quizzes covering a wide range of topics.</p>
+        <a href="#">Find out more</a>
+    </div>
+    <div class="content-box">
+        <h3><img src="icon3.png" alt="Icon"> Aptitude Practice</h3>
+        <p>Sharpen your problem-solving skills with a variety of aptitude tests and exercises designed to enhance your analytical abilities.</p>
+        
+        <!-- Progress Bar Container -->
+        <div class="progress-wrapper">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%;"></div>
+                <span class="progress-text">Progress: 75%</span>
+            </div>
+        </div>
+        
+        <a href="#">Find out more</a>
+    </div>
+    
+</div>
+
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="image/courses.jpg" alt="Slide 1">
+            <div class="text">Caption Text 1</div>
+        </div>
+        <div class="slide fade">
+            <img src="image/course.png" alt="Slide 2">
+            <div class="text">Caption Text 2</div>
+        </div>
+        <div class="slide fade">
+            <img src="image/course.png" alt="Slide 3">
+            <div class="text">Caption Text 3</div>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 3000); // Change slide every 3 seconds
+        }
+    </script>
+</body>
+</html>
