@@ -51,7 +51,7 @@ body{background-color: #a8bded4c;}
 
 .navbar .nav-links a:hover,
 .navbar .nav-links a.active {
-    color: #3498DB; /* Bright blue for hover and active links */
+    color: rgba(83, 113, 255); /* Bright blue for hover and active links */
     font-weight: bold;
     font-family: 'Poppins';
 }
@@ -164,7 +164,7 @@ body{background-color: #a8bded4c;}
 
         .get-certified-btn {
             background-color: #b6ccfe;
-            color: white;
+            color: rgb(37, 37, 37);
             padding: 15px 30px;
             text-decoration: none;
             font-size: 1.2em;
@@ -174,7 +174,7 @@ body{background-color: #a8bded4c;}
         }
 
         .get-certified-btn:hover {
-            background-color: #c1d3fe;
+            background-color: #e9f0ff;
         }
 
         /* Certification Steps Section */
