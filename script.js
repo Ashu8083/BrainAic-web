@@ -129,3 +129,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+function showSlide(index) {
+    const slides = document.querySelectorAll('.profile-content');
+    
+    // Hide all slides
+    slides.forEach(slide => {
+        slide.style.display = 'none';
+    });
+
+    // Show the selected slide
+    slides[index].style.display = 'flex';
+}
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the header element
+        const header = document.querySelector('.header');
+
+        // Check if the current page is the home page
+        if (window.location.hash === '#home' || window.location.pathname === '/' || window.location.pathname === '/index.html') {
+            // Add the transparent class for the home page
+            header.classList.add('transparent');
+        } else {
+            // Remove the transparent class for other pages
+            header.classList.remove('transparent');
+        }
+
+        // Optional: Handle hash changes if the user navigates with anchor links
+        window.addEventListener('hashchange', function() {
+            if (window.location.hash === '#home') {
+                header.classList.add('transparent');
+            } else {
+                header.classList.remove('transparent');
+            }
+        });
+    });
+
+

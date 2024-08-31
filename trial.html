@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="body.css">
+    </head>
+
+<body>
+    <div class="profile-card">
+        <!-- Option Buttons -->
+        <div class="button-group">
+            <button onclick="showSlide(0)">AI Teacher</button>
+            <button onclick="showSlide(1)">Learning Platform</button>
+            <button onclick="showSlide(2)">For You</button>
+            <button onclick="showSlide(3)">Do It Myself</button>
+        </div>
+    
+        <!-- Profile Sections Container -->
+        <div class="slider-container">
+            <div class="profile-content">
+                <div class="text-section">
+                    <h1>HI, I'M MICHAEL</h1>
+                    <p>I am an AI Teacher guiding you through personalized learning paths to achieve your goals.</p>
+                </div>
+                <div class="image-section">
+                    <img src="image/abstractjpg.jpg" alt="AI Teacher">
+                </div>
+            </div>
+    
+            <div class="profile-content">
+                <div class="text-section">
+                    <h1>LEARNING PLATFORM</h1>
+                    <p>Discover a dynamic platform tailored to enhance your learning experience with interactive content.</p>
+                </div>
+                <div class="image-section">
+                    <img src="image/Untitled (1600 x 760 px) (1).jpg" alt="Learning Platform">
+                </div>
+            </div>
+    
+            <div class="profile-content">
+                <div class="text-section">
+                    <h1>FOR YOU</h1>
+                    <p>Customized learning experiences designed specifically for your needs and preferences.</p>
+                </div>
+                <div class="image-section">
+                    <img src="image/qiz.jpg" alt="For You">
+                </div>
+            </div>
+    
+            <div class="profile-content">
+                <div class="text-section">
+                    <h1>DO IT MYSELF</h1>
+                    <p>Take control of your learning journey with tools and resources at your fingertips.</p>
+                </div>
+                <div class="image-section">
+                    <img src="image/do_it_myself.webp" alt="Do It Myself">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+       function showSlide(index) {
+    const slides = document.querySelectorAll('.profile-content');
+    
+    // Hide all slides
+    slides.forEach(slide => {
+        slide.style.display = 'none';
+    });
+
+    // Show the selected slide
+    slides[index].style.display = 'flex';
+}
+
+    </script>    
+</body>
+</html>

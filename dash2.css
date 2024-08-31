@@ -4,12 +4,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body > * {
     position: relative;
     z-index: 2;
 }
-
 /* Keyframes for linear gradient movement */
 @keyframes linearMove {
     0% {
@@ -22,12 +20,11 @@ body > * {
         background-position: 0% 50%;
     }
 }
-
-
 /* Default Header Styles */
+/* Default header style for pages other than the home screen */
 .header {
     overflow: hidden;
-    background-color: #abc4ff;
+    background-color: #abc4ff; /* Default background color */
     border: 2px solid #7e91bd;
     padding: 15px 8px;
     position: fixed;
@@ -37,43 +34,28 @@ body > * {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background-color 0.3s; /* Smooth transition for background color */
 }
-
-/* Logo styling */
+/* Transparent header for home screen */
+.header.transparent {
+    background-color: transparent;
+    border: none; /* Remove border for transparent background */
+}
+/* Styling for header elements remains the same */
 .header img {
     height: 40px;
     width: auto;
 }
-
-/* Centered navigation links */
 .header-center {
     display: flex;
     justify-content: center;
     flex-grow: 1;
 }
-
-/* Right-aligned login button */
 .header-right {
     flex-shrink: 0;
     background-color: rgb(50, 84, 255);
     border-radius: 4px;
 }
-
-/* Links inside the header */
-.header a {
-    float: left;
-    color: #edf2fb;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    line-height: 25px;
-    position: relative;
-    overflow: hidden;
-    transition: color 0.3s;
-}
-
-/* Glowing bar effect on hover */
 .header a {
     float: left;
     color: #edf2fb;
@@ -86,45 +68,34 @@ body > * {
     overflow: hidden;
     transition: color 0.3s, transform 0.3s;
 }
-
-/* Glowing bar effect on hover and active link */
 .header a::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 4px; /* Thickness of the bar */
-     /* Gradient effect */
+    height: 4px;
     opacity: 0;
     transform: scaleX(0);
     transition: opacity 0.3s, transform 0.3s;
 }
-
 .header a:hover::after,
 .header a.active::after {
     opacity: 1;
     transform: scaleX(1);
 }
-
-/* Active link styling */
 .header a.active {
-    color: #23A9E6; /* Change text color for the active link */
-    background-color: #b6ccfe00; /* Optional: Change background color for the active link */
-    border: 2px solid #899ed000; /* Optional: Border styling for the active link */
-    transform: scale(1.2); /* Scale up the active link */
-    z-index: 1; /* Ensure the active link is above others */
+    color: #23A9E6;
+    background-color: #b6ccfe00;
+    border: 2px solid #899ed000;
+    transform: scale(1.2);
+    z-index: 1;
 }
-
-/* Add a hover effect */
 .header a:hover {
     background-color: #c1d3fe00;
     border: 2px solid #899ed000;
     color: #23A9E6;
 }
-
-
-/* Hide the menu and display the icon on smaller screens */
 @media (max-width: 768px) {
     .header {
         flex-direction: row;
@@ -133,42 +104,35 @@ body > * {
     }
 
     .header img {
-        order: 1; /* Ensure logo is on the left */
+        order: 1;
     }
-
-    /* Display the icon only on mobile screens */
     .icon {
         display: block;
         cursor: pointer;
         font-size: 24px;
         color: #EDB552;
         margin-right: 10px;
-        order: 2; /* Ensure icon is on the right */
+        order: 2;
     }
-
-    /* Hide icon on larger screens */
     @media (min-width: 769px) {
         .icon {
             display: none;
         }
     }
-
     .header-center {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Adjust according to header height */
+        top: 60px;
         left: 0;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.7); /* Semi-black background */
+        background-color: rgba(0, 0, 0, 0.7);
         padding: 20px 0;
         text-align: center;
     }
-
     .header-center.show {
         display: flex;
     }
-
     .header-center a {
         display: block;
         color: #EDB552;
@@ -181,12 +145,10 @@ body > * {
         color: #23A9E6;
     }
     
-    /* Semi-transparent background when menu is open */
     .header.show {
         background-color: rgba(0, 0, 0, 0.7);
     }
 }
-
 
 /* Page Styling */
 .page {
@@ -199,8 +161,6 @@ body > * {
     padding: 0;
     margin: 0;
 }
-
-
 .page:not(:last-child) {
     margin-bottom: 0;
 }
@@ -212,13 +172,8 @@ body > * {
 .page:nth-child(even) {
     background-color: #ccdbfd;
 }
-
-/* Container styling */
-/* Main container styling */
-/* Container for the slideshow and its contents */
-/* Container Styling */
 #home {
-    height: 100%;
+    height: 70%;
     width: 100%;
     position: relative;
 }
@@ -401,7 +356,7 @@ body > * {
 /* Section Title Styling */
 .page2{
     width: 100%;
-    min-height: 100vh; /* Ensure it takes up at least the full viewport height */
+    min-height: 70vh; /* Ensure it takes up at least the full viewport height */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -415,103 +370,147 @@ body > * {
     margin: 20px 0;
 }
 
+/* Courses Wrapper Styling */
+/* Intro Paragraph Styling */
+/* Courses Section Styling */
 #courses {
-    background: url("image/");
-    background-size: cover; /* Ensure the image covers the entire section */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repeating the image */
-    padding: 20px; /* Add some padding if needed */
-    margin-top: 20px;
+    color: #333;
+    padding-top: 80px; 
+    padding-bottom: 50px; 
+    position: relative;
+    width: 100%;
+    min-height: 100vh; 
+    box-sizing: border-box; 
 }
 
-.course-container {
+/* Courses Wrapper Styling */
+.courses-wrapper {
     display: flex;
-    flex-direction: column;
-    width: 75%;
-    max-width: 1200px; /* Optional: Limits the maximum width */
-    gap: 20px;
-    padding: 10px;
-    height: 100%;
-    margin: 0 auto; /* Centers the container horizontally */
-    box-sizing: border-box;
-    background-color: #d7e3fc; /* Optional: Adds a semi-transparent background to the course container */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
+    padding: 20px;
+    max-width: 1200px; /* Set a max-width to prevent stretching on large screens */
+    margin: 0 auto; /* Center the wrapper horizontally */
 }
 
-.course-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding: 10px;
-    width: 100%; /* Ensure items take up full width of the container */
-    max-width: 100%;
+/* Intro Paragraph Styling */
+.intro-paragraph {
+    width: 100%; /* Full width of the wrapper */
+    padding: 20px;
+    text-align: left; /* Align text to the left */
+    background-color: ;/* Optional: background color */
+    border-radius: 10px; /* Optional: rounded corners */
+    margin-bottom: 20px; /* Space below the paragraph */
 }
 
-.course-item:nth-child(odd) {
-    flex-direction: row; /* Image on the left and description on the right for odd items */
+/* Section Title Styling */
+.section-title {
+    font-size: 2.5em; /* Adjust size as needed */
+    margin-bottom: 20px; /* Space below the title */
+    color: #1b1b1b; /* Text color */
+    border-bottom: 2px solid #EDB552; /* Color and thickness of the underline */
+    display: inline-block; /* Allow padding and margin to be applied */
+    padding-bottom: 4px; /* Space between text and underline */
+    margin-top :-3px;;
 }
-
-.course-item:nth-child(even) {
-    flex-direction: row-reverse; /* Image on the right and description on the left for even items */
-}
-
-.course-image {
-    width: 30%; /* Adjust image size here */
-    max-width: 100%; /* Ensure the image does not overflow its container */
-    height: auto;
-}
-
-.course-description {
-    width: 65%; /* Adjust description width accordingly */
-    padding: 10px;
-    font-size: 1em; /* Adjust font size to fit better */
-    line-height: 1.4;
-    box-sizing: border-box;
-    position: relative; /* For positioning close button if needed */
-}
-
-.course-subheading {
-    font-size: 1.2em; /* Adjust size of the subheading */
-    font-weight: bold;
-    margin-bottom: 10px; /* Space below the subheading */
-}
-
 /* Divider Styling */
 .divider {
-    width: 100%;
-    height: 2px; /* Thickness of the divider */
-    background: linear-gradient(to right, #c1d3fe, #207eb8, #c1d3fe); /* Gradient effect */
+    width: 80%;
+    height: 2px;
+    background: #ddd; /* Light grey color for the divider */
     margin: 20px 0; /* Space above and below the divider */
+    position: relative;
+}
+.divider::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #EDB552; /* Accent color for the left side of the divider */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
 }
 
-/* Adjusting the layout for smaller screens */
-@media (max-width: 768px) {
-    .course-item {
-        flex-direction: column;
-        text-align: center;
-        padding: 0; /* Remove side padding on smaller screens */
-    }
+/* Course Container Styling */
+.course-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%; /* Full width of the wrapper */
+    justify-content: space-around;
+    padding: 20px;
+}
 
-    .course-image {
-        width: 100%;
-    }
+/* Course Card Styling */
+.course-card {
+    background-color: #c1d3fe;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(67, 67, 67, 0.1);
+    width: 30%;
+    height: auto;
+    margin: 20px 0;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
 
-    .course-description {
-        width: 100%;
-        padding: 10px; /* Adjust padding for smaller screens */
-    }
+.course-card:hover {
+    transform: scale(1.05);
+}
 
-    .course-subheading {
-        font-size: 1.1em; /* Adjust size for smaller screens */
+.course-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.course-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.course-content h3 {
+    color: #1b1b1b;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.course-content p {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Button Styling */
+.btn {
+    background-color: #EDB552;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #EDB552;
+}
+
+/* Mobile Responsive Course Cards */
+@media screen and (max-width: 768px) {
+    .course-card {
+        width: 100%; /* Make course cards full width */
+        margin: 10px 0; /* Reduce margin for better fit */
     }
 }
+
 
 
 /* About Section Styling */
 #about {
     padding-top: 78px;
     position: relative;
-    background: #899ed0;; /* Adjusted background color */
+    background: #ccdbfdc1; /* Adjusted background color */
     background-size: cover; /* Ensure the image covers the container */
     width: 100%;
     min-height: 100vh;
@@ -533,7 +532,7 @@ body > * {
 
 .container {
     display: flex; /* Use flexbox to align left and right containers side by side */
-    width: 100%;
+    width: 80%;
     max-width: 1200px;
 }
 
