@@ -1,0 +1,239 @@
+:root {
+    --button-color: #abc4ff; /* Light Blue */
+    --button-color-hover: #b6ccfe; /* Slightly Darker Blue */
+    --learning-color-hover: #c1d3fe; /* Soft Blue */
+    --background-color: #edf2fb; /* Lightest Background Blue */
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #abc4ff; /* Primary color */
+    color: #ECF0F1;
+    padding: 15px 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .brand img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar .nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    display: inline;
+}
+
+.navbar .nav-links a {
+    color: #edf2fb; /* Lightest color */
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+    font-family: 'Poppins';
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+    color: #b6ccfe; /* Active and hover color */
+    font-weight: bold;
+    font-family: 'Poppins';
+}
+
+body,
+html {
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    position: relative;
+    background-color: var(--background-color);
+    color: #333;
+    background-image: url('/image/#avatar');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+
+#loading {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    height: 50px;
+    font-family: Arial;
+    font-size: 20px;
+}
+
+#conversation {
+    position: absolute;
+    top: 620px;
+    left: 20px;
+    right: 500px;
+    bottom: 10px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#assesment {
+    margin:right;
+    position: absolute;
+    top: 100px;
+    bottom: 500px;
+    font-size: large;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    cursor: pointer;
+    background-color: var(--button-color);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: var(--button-color-hover);
+}
+
+#learning {
+    overflow: auto;
+    background-color: var(--learning-color-hover);
+    display: none;
+    position: absolute;
+    top: 200px;
+    left: 20px;
+    right: 450px;
+    bottom: 170px;
+    font-size: 100%;
+    color: #fff;
+    padding: 20px;
+}
+
+#take-assesment {
+    display: none;
+    position: absolute;
+    background-color: var(--button-color);
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    bottom: -160%;
+    left: 40%;
+}
+
+#assessment-container {
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+#assesmentsubmit {
+    display: none;
+}
+
+#webcamContainer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    height: 150px;
+    z-index: 100;
+    cursor: move;
+    border: 2px solid var(--button-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#webcam {
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1); 
+}
+
+
+/* Avatar Container */
+.avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Allows positioning of child elements */
+    width: 100%; /* Make the container full width */
+}
+
+/* Avatar Styling */
+#avatar {
+    margin-top: 80px;
+    width: 40%; 
+    height: 80vh; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    position: relative; /* Allows absolute positioning of buttons */
+    overflow: hidden; /* Ensures buttons don't overflow out of the avatar */
+}
+
+/* Controls Section */
+#controls {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px;
+    position: absolute;
+    top: 10px; /* Position near the top of the avatar */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the buttons */
+    z-index: 10; /* Ensure the buttons are above the avatar */
+}
+
+/* Button Styling */
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Speak Button Specific Styling */
+#speak {
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+/* Optional Hover Effect */
+#speak:hover, #avatarButton1:hover, #avatarButton2:hover {
+    background-color: var(--button-color-hover, #0056b3); /* Adjust hover color as needed */
+}
