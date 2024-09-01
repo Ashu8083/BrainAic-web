@@ -4,14 +4,389 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Platform</title>
-    <link rel="stylesheet" href="dash-style.css"> <!-- Link to your CSS file -->
+    <!--<link rel="stylesheet" href="./dash-style.css">  Link to your CSS file -->
+    <style>
+        /* General Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
+}
+body{background-color: #a8bded4c;}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #9dbafd; /* Dark navy blue background */
+    color: #ECF0F1; /* Light grey text color */
+    padding: 15px 20px; /* Padding for the navbar */
+    z-index: 1000; /* Ensure the navbar is above other content */
+    display: flex;
+    justify-content: space-between; /* Space out brand and links */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar .brand img {
+    height: 50px; /* Adjust height as needed */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.navbar .nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Space between links */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    display: inline;
+}
+
+.navbar .nav-links a {
+    color: #ECF0F1; /* Light grey text color */
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+    font-family: 'Poppins';
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+    color: rgba(83, 113, 255); /* Bright blue for hover and active links */
+    font-weight: bold;
+    font-family: 'Poppins';
+}
+
+
+/* Content Styles for Other Sections */
+.container {
+    margin-top: 80px; /* Ensure content is below the fixed navbar */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between content boxes */
+    justify-content: space-between;
+    width: 80%; /* Adjust width to suit your design needs */
+    margin-left: auto; /* Center the container horizontally */
+    margin-right: auto; /* Center the container horizontally */
+}
+
+
+/* Content Box Styles */
+/* Enhanced Content Box Styles */
+.content-box {
+    background-color: #FFFFFF; /* White background for content boxes */
+    border: 1px solid #BDC3C7; /* Light grey border */
+    border-radius: 10px;
+    padding: 20px; /* Increased padding for more space */
+    flex: 1 1 calc(33% - 20px); /* Adjust width as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 300px; /* Set a minimum height for boxes */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align content in the box */
+    gap: 15px;
+    width: 25%;
+}
+
+/* Header for the Box with Icon and Title */
+.box-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.box-icon {
+    width: 40px; /* Smaller width for the logo */
+    height: 40px; /* Smaller height for the logo */
+    object-fit: contain; /* Ensures the image doesn't stretch */
+}
+
+.content-box h3 {
+    background-color: #FFFFFF; 
+    border: 1px solid #BDC3C7; 
+    border-radius: 10px;
+    padding: 20px; 
+    flex: 1 1 30%; /* Adjust width equally */
+    max-width: 30%; /* Ensure boxes don't exceed 30% of the container width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 15px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    gap: 15px;
+    
+}
+
+/* Description Text Styling */
+.box-description {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.5;
+    flex: 1;
+}
+
+/* Redesigned Progress Bar Styles */
+.progress-wrapper {
+    margin-top: 10px;
+}
+
+.progress-bar {
+    position: relative;
+    background: #e0e0e0; /* Background of the progress bar */
+    border-radius: 15px;
+    height: 20px; /* Height of the progress bar */
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+    background: linear-gradient(to right, #6fa3ef, #8c92ff); /* Gradient for progress fill */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    border-radius: 15px;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* Learn More Button */
+.learn-more-btn {
+    text-decoration: none;
+    color: #FFFFFF; /* White text color */
+    background-color: #3498DB; /* Bright blue background */
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #2980B9; /* Darker blue on hover */
+}
+
+
+        /* Header Section */
+        .certify-header {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #abc4ff;
+            color: #101010;
+            
+        }
+
+        .certify-header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #101010;
+            font-family: 'Poppins';
+        }
+
+        .certify-header p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #000000;
+            font-family: 'Poppins';
+        }
+
+        .get-certified-btn {
+            background-color: #b6ccfe;
+            color: rgb(37, 37, 37);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .get-certified-btn:hover {
+            background-color: #e9f0ff;
+        }
+
+        /* Certification Steps Section */
+        .certify-steps {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 20px;
+            flex-wrap: wrap;
+        }
+
+        .step-card {
+            background-color: #ccdbfd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            color: #101010;
+            font-family: "poppins";
+        }
+
+        .step-card img {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+
+        .step-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Certificate Section */
+        .certificate-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 100px 20px;
+        }
+
+        .certificate-info {
+            flex: 1;
+            padding-right: 20px;
+            margin-left: 30px;
+        }
+
+        .certificate-info h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #101010;
+            font-family: 'Poppins';
+        }
+
+        .certificate-info p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            color: #101010;
+        }
+
+        .certificate-image {
+            flex: 1;
+            text-align: center;
+            margin-right: 30px;
+        }
+
+        .certificate-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+    
+        .progress-bar {
+            position: relative;
+            background: #e0e0e0; /* Background of the progress bar */
+            border-radius: 10px;
+            height: 15px; /* Height of the progress bar */
+            overflow: hidden;
+            margin-bottom:10px;
+        }
+        
+        .progress-fill {
+            background: #abc4ff; /* Green color for progress */
+            height: 100%;
+            text-align: center;
+            color: rgb(233, 228, 228);
+            line-height: 30px; /* Center text vertically */
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out; /* Smooth width transition */
+        }
+        
+        .progress-text {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: #272626;
+        }
+        .brand-name {
+            color: #000000;
+            font-family: 'League Spartan', sans-serif
+        }
+        
+        .highlight {
+            color: rgba(83, 113, 255); /* Green color for AI */
+            text-shadow: 1px 1px 2px rgba(83, 113, 255, 0.5); /* Shadow for a standout effect */
+        }
+        
+        /* AI Teacher Card Styles */
+.ai-teacher-card {
+    width: 75%; /* Card covers 75% of the page */
+    height: 400px; /* Adjust the height as needed */
+    margin: 50px auto; /* Center the card horizontally */
+    background-image: url('image/'); /* Add your background image path */
+    background-size: cover; /* Cover the entire card */
+    background-position: center; /* Center the background image */
+    position: relative; /* For positioning overlapping content */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: flex-end; /* Push content to the right side */
+    padding: 20px;
+}
+
+.card-content {
+    max-width: 60%; /* Restricts the content width */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6); /* Dark transparent background for better readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-content h2 {
+    font-size: 2.5em;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-content p {
+    color: #f1f1f1;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.start-learning-btn {
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #3498DB;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.start-learning-btn:hover {
+    background-color: #2980B9;
+}
+
+    </style>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 <body>
     <!-- Navbar -->
     <div class="navbar">
         <a href="index.html" class="brand">
-            <img src="image/BrainAlc (1).png" alt="Learning Platform Logo">
+            <img src="../image/BrainAlc (1).png" alt="Learning Platform Logo">
         </a>
         <div class="nav-links">
             <ul>
@@ -28,7 +403,7 @@
     <div class="container">
         <div class="content-box">
             <div class="box-header">
-                <img src="image/logo/eng_logo.png" alt="Icon" class="box-icon">
+                <img src="../image/logo/eng_logo.png" alt="Icon" class="box-icon">
                 <h3>English</h3>
             </div>
             <p class="box-description">Enhance your English skills with tailored exercises, practice tests, and comprehensive quizzes.</p>
@@ -39,23 +414,29 @@
                     </div>
                 </div>
             </div>
-            <a href="application/courses/English.html" class="learn-more-btn">Find out more</a>
+            <a href="./courses/English.html" class="learn-more-btn">Find out more</a>
         </div>
         
     <div class="content-box">
-        <h3><img src="image/logo/quiz.png" alt="Icon"> General Knowledge</h3>
-        <p>Expand your knowledge with curated challenges and quizzes covering a wide range of topics.</p>
+        <div class="box-header">
+            <img src="../image/logo/quiz.png" alt="Icon" class="box-icon">
+            <h3> General Knowledge</h3>
+        </div>
+        <p class="box-description">Expand your knowledge with curated challenges and quizzes covering a wide range of topics.</p>
         <div class="progress-wrapper">
             <div class="progress-bar">
                 <div class="progress-fill" style="width: 75%;"></div>
                 <span class="progress-text">Progress: 75%</span>
             </div>
         </div>
-        <a href="application/courses/gk.html">Find out more</a>
+        <a href="./courses/gk.html"  class="learn-more-btn">Find out more</a>
     </div>
     <div class="content-box">
-        <h3><img src="image/logo/aptitude_logo.png" alt="Icon"> Aptitude </h3>
-        <p>Sharpen your problem-solving skills with a variety of aptitude tests and exercises designed to enhance your analytical abilities.</p>
+        <div class="box-header">
+            <img src="../image/logo/aptitude_logo.png" alt="Icon" class="box-icon">
+            <h3> Aptitude </h3>
+        </div>
+        <p class="box-description">Sharpen your problem-solving skills with a variety of aptitude tests and exercises designed to enhance your analytical abilities.</p>
         
         <!-- Progress Bar Container -->
         <div class="progress-wrapper">
@@ -65,7 +446,7 @@
             </div>
         </div>
         
-        <a href="application/courses/aptitude.html">Find out more</a>
+        <a href="./courses/aptitude.html" class="learn-more-btn">Find out more</a>
     </div>
     
 </div>

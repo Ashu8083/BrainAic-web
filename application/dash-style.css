@@ -96,15 +96,26 @@ body{background-color: #a8bded4c;}
 }
 
 .box-icon {
-    width: 60px; /* Adjust icon size */
-    height: auto;
+    width: 40px; /* Smaller width for the logo */
+    height: 40px; /* Smaller height for the logo */
+    object-fit: contain; /* Ensures the image doesn't stretch */
 }
 
 .content-box h3 {
-    font-size: 1.8em;
-    margin: 0;
-    color: #333;
-    font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF; 
+    border: 1px solid #BDC3C7; 
+    border-radius: 10px;
+    padding: 20px; 
+    flex: 1 1 30%; /* Adjust width equally */
+    max-width: 30%; /* Ensure boxes don't exceed 30% of the container width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 300px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    gap: 15px;
+    margin-bottom: 20px; /* Adds space below each box */
 }
 
 /* Description Text Styling */
