@@ -1,0 +1,189 @@
+:root {
+    --button-color: #abc4ff; /* Light Blue */
+    --button-color-hover: #b6ccfe; /* Slightly Darker Blue */
+    --learning-color-hover: #c1d3fe; /* Soft Blue */
+    --background-color: #edf2fb; /* Lightest Background Blue */
+}
+
+body,
+html {
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    background-color: var(--background-color);
+    color: #333;
+}
+
+/* Navbar styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #abc4ff;
+    color: #ECF0F1;
+    padding: 15px 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .brand img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar .nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links a {
+    color: #edf2fb;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+    font-family: 'Poppins';
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+    color: #b6ccfe;
+    font-weight: bold;
+}
+
+/* Main container with Flexbox layout */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 20px 20px; /* Top padding to account for navbar */
+    gap: 20px; /* Space between left and right sections */
+    height: calc(100vh - 80px); /* Full height minus navbar height */
+}
+
+/* Left section styling */
+.div-left {
+    flex: 1;
+    padding: 20px;
+    background: #ffffff; /* Optional background color */
+    border: 1px solid #ccc; /* Optional border for clarity */
+    border-radius: 8px;
+    overflow-y: auto;
+}
+
+/* Assessment container within left section */
+#assessment-container {
+    display: block;
+    margin-top: 20px;
+}
+
+/* Right section styling */
+.div-right {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff; /* Optional background color */
+    border: 1px solid #ccc; /* Optional border for clarity */
+    border-radius: 8px;
+    overflow-y: auto;
+}
+/* Ensure buttons are placed side by side */
+.buttons {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: row; /* Align buttons horizontally */
+    gap: 10px; /* Space between buttons */
+}
+
+/* Existing button styling */
+.button {
+    cursor: pointer;
+    background-color: var(--button-color);
+    border-radius: 10px;
+    padding: 10px 20px; /* Adjust padding for size */
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    border: none; /* Remove default border */
+}
+
+.button:hover {
+    background-color: var(--button-color-hover);
+}
+
+/* Avatar container styling */
+.avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#avatar {
+    width: 100%;
+    height: 80vh;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background:url("image/Untitled\ \(1400\ x\ 1400\ px\)\ \(800\ x\ 1400\ px\).jpg");
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Controls within the avatar */
+#controls {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Button styles */
+.button {
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: var(--button-color-hover);
+}
+#webcamContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    height: 150px;
+    z-index: 100;
+    border: 2px solid var(--button-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #000; /* Ensure the background is black */
+}
+
+#webcam {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container completely while maintaining aspect ratio */
+    transform: scaleX(-1); /* Flip horizontally to correct webcam orientation */
+}
