@@ -21,19 +21,21 @@
             </ul>
         </div>
     </div>
-    <div id="assesment">
-        <h1>Virtual Learning Guide</h1>
-        <p>Welcome to my programming class! We'll explore C++, HTML, CSS, and SQL. <br><br>
-            From C++'s versatility to HTML/CSS web development and SQL database management, we'll cover a range of languages and their applications. <br><br>
-            Let's dive in and unlock the power of coding together! <br><br></p>
-
-        <div class="buttons">
-            <div id="c++" class="button" onclick="getResponse('Response from Button 1', this)">C++</div>
-            <div id="HTML" class="button" onclick="getResponse('Response from Button 2', this)">HTML</div>
-            <div id="CSS" class="button" onclick="getResponse('Response from Button 3', this)">CSS</div>
-            <div id="SQL" class="button" onclick="getResponse('Response from Button 4', this)">SQL</div>
-        </div>
-    </div>
+    <div class="main-container">
+        <div class="div-left">
+            <div id="assesment">
+                <h1>Virtual Learning Guide</h1>
+                <p>Welcome to my programming class! We'll explore C++, HTML, CSS, and SQL. <br><br>
+                    From C++'s versatility to HTML/CSS web development and SQL database management, we'll cover a range of languages and their applications. <br><br>
+                    Let's dive in and unlock the power of coding together! <br><br></p>
+        
+                <div class="buttons">
+                    <div id="c++" class="button" onclick="getResponse('Response from Button 1', this)">C++</div>
+                    <div id="HTML" class="button" onclick="getResponse('Response from Button 2', this)">HTML</div>
+                    <div id="CSS" class="button" onclick="getResponse('Response from Button 3', this)">CSS</div>
+                    <div id="SQL" class="button" onclick="getResponse('Response from Button 4', this)">SQL</div>
+                </div>
+            </div>
 
     <div id="assessment-container">
         <div id="assessmentForm"></div>
@@ -44,6 +46,8 @@
       
     <div id="take-assesment">Take Assesment</div>
     <div id="loading"></div>
+    </div>
+    <div class="div-right">
     <div class="avatar-container">
         <div id="avatar">
             <div id="controls">
@@ -53,9 +57,12 @@
             </div>
         </div>
     </div>
+    </div>
+
     
     <div id="webcamContainer">
         <video id="webcam" autoplay></video>
+    </div>
     </div>
     <script type="importmap">
       {
