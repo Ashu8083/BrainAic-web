@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Mains Exam Interface</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="nav-panel">
+            <h2>Navigation Panel</h2>
+            <ul id="sections-list">
+                <li><button class="start-quiz" data-section="calendar">Calendar Aptitude</button></li>
+                <li><button class="start-quiz" data-section="clock">Clock Aptitude</button></li>
+                <li><button class="start-quiz" data-section="grammar">Articles Grammar</button></li>
+                <li><button class="start-quiz" data-section="gk">General Knowledge</button></li>
+            </ul>
+        </div>
+
+        <div id="quiz-container" style="display: none;">
+            <h2 id="section-title"></h2>
+            <p id="question"></p>
+            <div id="answers">
+                <button class="answer-button"></button>
+                <button class="answer-button"></button>
+                <button class="answer-button"></button>
+                <button class="answer-button"></button>
+            </div>
+            <div id="controls">
+                <button id="next-btn" style="display:none;">Next</button>
+                <button id="submit-btn" style="display:none;">Submit</button>
+            </div>
+        </div>
+
+        <div id="result-container" style="display:none;">
+            <h2>Your Result</h2>
+            <p id="result"></p>
+        </div>
+
+        <div id="final-result-container" style="display:none;">
+            <h2>Final Result</h2>
+            <p id="final-result"></p>
+        </div>
+
+        <!-- Webcam Stream -->
+        <div id="webcam-container">
+            <h2>Live Webcam Feed</h2>
+            <video id="webcam" autoplay></video>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

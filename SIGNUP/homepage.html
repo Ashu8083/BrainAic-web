@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <div>
+        <h1>Welcome, <span id="loggedUserFName"></span> <span id="loggedUserLName"></span></h1>
+        <p>Email: <span id="loggedUserEmail"></span></p>
+        <button id="logout">Logout</button>
+    </div>
+
+    <script type="module">
+        import { auth, db } from './firebase-config.js';
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+        import { getDoc, doc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+
+        onAuthStateChanged(auth, (user) => {
+            const loggedInUserId = localStorage.getItem('loggedInUserId');
+            if (loggedInUserId) {
+                const docRef = doc(db, "users", loggedInUserId);
+                getDoc(docRef)
+                    .then((docSnap) => {
+                        if (docSnap.exists()) {
+                            const userData = docSnap.data();
+                            document.getElementById('loggedUserFName').innerText = userData.firstName;
+                            document.getElementById('loggedUserEmail').innerText = userData.email;
+                            document.getElementById('loggedUserLName').innerText = userData.lastName;
+                        } else {
+                            console.log("No document found matching ID");
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("Error getting document: ", error);
+                    });
+            } else {
+                console.log("User ID not found in local storage");
+            }
+        });
+
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.removeItem('loggedInUserId');
+            signOut(auth)
+                .then(() => {
+                    window.location.href = 'index.html';
+                })
+                .catch((error) => {
+                    console.error('Error signing out: ', error);
+                });
+        });
+    </script>
+</body>
+</html>

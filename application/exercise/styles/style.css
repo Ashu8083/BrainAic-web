@@ -1,0 +1,134 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #abc4ff; /* Primary color */
+    color: #ECF0F1;
+    padding: 15px 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .brand img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar .nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    display: inline;
+}
+
+.navbar .nav-links a {
+    color: #edf2fb; /* Lightest color */
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+    font-family: 'Poppins';
+}
+
+
+
+.container {
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+form {
+    text-align: left;
+}
+
+label {
+    font-size: 18px;
+    color: #555;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+div {
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button.reset {
+    background-color: #abc4ff;;
+}
+
+button.reset:hover {
+    background-color: #007bff;
+}
+
+/* For the Results Page */
+#results {
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Add responsive design for mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
