@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Avatar</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Include the relevant styles for the new buttons */
+        .button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 15px 20px;
+            background-color: #0d6efd;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+        .ask-me, .doubts {
+            margin-top: 20px;
+            padding: 15px 20px;
+            background-color: #ffc107;
+            text-align: center;
+            font-size: 18px;
+            color: #343a40;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            border-radius: 5px;
+        }
+
+        .ask-me:hover, .doubts:hover {
+            background-color: #e0a800;
+            transform: scale(1.05);
+        }
+
+        .ask-me:active, .doubts:active {
+            transform: scale(0.95);
+        }
+
+        .speech-input {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            color: #343a40;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            width: 100%;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        .speech-output {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            color: #343a40;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            width: 100%;
+            box-sizing: border-box;
+            display: none;
+            position: relative;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .microphone-icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html" class="brand">
+            <img src="image/BrainAlc (1).png" alt="BrainAIc Logo" class="logo">
+        </a>
+        <div class="nav-links">
+            <ul>
+                <li class="nav-item active"><a href="../dashboard.html">Prepare</a></li>
+                <li class="nav-item"><a href="#">Certify</a></li>
+                <li class="nav-item"><a href="#">Compete</a></li>
+                <li class="nav-item"><a href="#">Apply</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="div-left">
+            <div id="assessment">
+                <h1>Virtual Learning Guide</h1>
+                <p>Welcome to BrainAIc, where AI revolutionizes learning! Experience personalized education with tailored courses, interactive content, and instant feedback. Join us today and embrace the future of smarter, more efficient learning.
+                    <br><br></p>
+
+                <div class="buttons">
+                    <div id="Test" class="button" onclick="getResponse('Response from Button 1', this)">Test</div>
+                    <div id="Exercise" class="button" onclick="getResponse('Response from Button 2', this)">Exercise</div>
+                    <div id="Notes" class="button" onclick="getResponse('Response from Button 3', this)">Notes</div>
+                    <div id="" class="button" onclick="getResponse('Response from Button 4', this)">Queries</div>
+                </div>
+
+                <div class="ask-me" onclick="startSpeechToSpeech()">Ask Me <img src="https://img.icons8.com/ios-filled/50/000000/microphone.png" class="microphone-icon"></div>
+                <div class="doubts" onclick="getResponse('Doubts button clicked', this)">Doubts</div>
+
+                <input type="text" id="speechInput" class="speech-input" placeholder="Say something..." disabled>
+                <div id="speechOutput" class="speech-output">AI is thinking... <div class="spinner" id="loadingSpinner"></div></div>
+            </div>
+
+            <div id="assessment-container">
+                <div id="assessmentForm"></div>
+                <!-- Removed the Submit Assessment button -->
+                <div id="score"></div>
+                <div id="conversation"></div>
+            </div>
+
+            <!-- Removed the Take Assessment button -->
+            <div id="loading"></div>
+        </div>
+
+        <div class="div-right">
+            <div class="video-container">
+                <!-- Video of AI -->
+                <video id="aiVideo" controls autoplay loop>
+                    <source src="gooey.ai lipsync (1).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div id="webcamContainer">
+        <video id="webcam" autoplay></video>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+          "three/examples/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/",
+          "dompurify": "https://cdn.jsdelivr.net/npm/dompurify@3.0.6/+esm",
+          "marked": "https://cdn.jsdelivr.net/npm/marked@11.2.0/+esm",
+          "talkinghead": "https://cdn.jsdelivr.net/gh/met4citizen/TalkingHead@1.1/modules/talkinghead.mjs",
+          "axios": "https://cdn.jsdelivr.net/npm/axios@latest/dist/axios.min.js"
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="./index.js"></script>
+    <script src="webcam.js"></script>
+    <script>
+        // Speech Recognition
+        const speechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new speechRecognition();
+
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = 'en-US';
+
+        const askMeButton = document.querySelector('.ask-me');
+        const speechInput = document.getElementById('speechInput');
+        const speechOutput = document.getElementById('speechOutput');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+
+        askMeButton.addEventListener('click', () => {
+            speechInput.style.display = 'block';
+            speechOutput.style.display = 'block';
+            startSpeechToSpeech();
+        });
+
+        function startSpeechToSpeech() {
+            recognition.start();
+        }
+
+        recognition.onstart = () => {
+            console.log('Voice recognition started. Try speaking into the microphone.');
+        };
+
+        recognition.onspeechend = () => {
+            console.log('Speech has been detected.');
+            recognition.stop();
+        };
+
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            speechInput.value = transcript;
+            console.log('Speech input:', transcript);
+
+            loadingSpinner.style.display = 'block';
+            setTimeout(() => {
+                respondWithSpeech(transcript);
+                loadingSpinner.style.display = 'none';
+            }, 2000);
+        };
+
+        recognition.onerror = (event) => {
+            console.error('Speech recognition error:', event.error);
+        };
+
+        function respondWithSpeech(inputText) {
+            const responses = {
+                "hello": "Hello! How can I assist you today?",
+                "who are you": "I am your AI assistant, here to help you with coding and learning.",
+                "tell me a joke": "Why don't scientists trust atoms? Because they make up everything!",
+                "goodbye": "Goodbye! Have a great day!"
+            };
+
+            const responseText = responses[inputText.toLowerCase()] || "Sorry, I didn't understand that. Can you please repeat?";
+            speechOutput.textContent = responseText;
+        }
+
+        function getResponse(response, buttonElement) {
+            speechOutput.style.display = 'block';
+            speechOutput.textContent = response;
+        }
+    </script>
+</body>
+</html>
