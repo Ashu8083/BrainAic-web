@@ -72,8 +72,8 @@ html {
 .div-left {
     flex: 1;
     padding: 20px;
-    background: #ffffff; /* Optional background color */
-    border: 1px solid #ccc; /* Optional border for clarity */
+    background: #ffffff01; /* Optional background color */
+    border: 1px solid #cccccc00; /* Optional border for clarity */
     border-radius: 8px;
     overflow-y: auto;
 }
@@ -186,4 +186,136 @@ html {
     height: 100%;
     object-fit: cover; /* Cover the container completely while maintaining aspect ratio */
     transform: scaleX(-1); /* Flip horizontally to correct webcam orientation */
+}
+.button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 15px 20px;
+    background-color: #0d6efd;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.ask-me, .doubts {
+    margin-top: 20px;
+    padding: 15px 20px;
+    background-color: #5e99ff;
+    text-align: center;
+    font-size: 18px;
+    color: #343a40;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 5px;
+}
+
+.ask-me:hover, .doubts:hover {
+    background-color: #6eadff;
+    transform: scale(1.05);
+}
+
+.ask-me:active, .doubts:active {
+    transform: scale(0.95);
+}
+
+.speech-input {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    color: #343a40;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+}
+
+.speech-output {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    color: #343a40;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+    position: relative;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.microphone-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Set a maximum width for the video container */
+    background-color: #00000000; /* Black background for the video container */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Ensure the video stays within rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+#aiVideo {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border: 5px solid #fff; /* White border around the video */
+    border-radius: 1spx; /* Rounded corners for the video */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Inner shadow for a subtle 3D effect */
+}
+
+/* Optional: Style the video controls (browser-dependent) */
+video::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0); /* Darker background for controls */
+    border-radius: 10px; /* Rounded corners for the controls */
+}
+
+video::-webkit-media-controls-play-button {
+    background-color: #97b1fd; /* Custom color for play button */
+    border-radius: 50%; /* Round play button */
+}
+
+/* Responsive video */
+@media (max-width: 768px) {
+    .video-container {
+        max-width: 100%; /* Full width on smaller screens */
+        border-radius: 0; /* Remove rounded corners on small screens */
+    }
 }

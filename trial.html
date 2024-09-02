@@ -1,77 +1,95 @@
-<html>
-    <head>
-        <title></title>
-        <link rel="stylesheet" href="body.css">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Face Detection</title>
+    <style>
+        /* Basic styling */
+        .video-container {
+            width: 640px;
+            margin: 0 auto;
+            position: relative;
+        }
 
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
 <body>
-    <div class="profile-card">
-        <!-- Option Buttons -->
-        <div class="button-group">
-            <button onclick="showSlide(0)">AI Teacher</button>
-            <button onclick="showSlide(1)">Learning Platform</button>
-            <button onclick="showSlide(2)">For You</button>
-            <button onclick="showSlide(3)">Do It Myself</button>
-        </div>
-    
-        <!-- Profile Sections Container -->
-        <div class="slider-container">
-            <div class="profile-content">
-                <div class="text-section">
-                    <h1>HI, I'M MICHAEL</h1>
-                    <p>I am an AI Teacher guiding you through personalized learning paths to achieve your goals.</p>
-                </div>
-                <div class="image-section">
-                    <img src="image/abstractjpg.jpg" alt="AI Teacher">
-                </div>
-            </div>
-    
-            <div class="profile-content">
-                <div class="text-section">
-                    <h1>LEARNING PLATFORM</h1>
-                    <p>Discover a dynamic platform tailored to enhance your learning experience with interactive content.</p>
-                </div>
-                <div class="image-section">
-                    <img src="image/Untitled (1600 x 760 px) (1).jpg" alt="Learning Platform">
-                </div>
-            </div>
-    
-            <div class="profile-content">
-                <div class="text-section">
-                    <h1>FOR YOU</h1>
-                    <p>Customized learning experiences designed specifically for your needs and preferences.</p>
-                </div>
-                <div class="image-section">
-                    <img src="image/qiz.jpg" alt="For You">
-                </div>
-            </div>
-    
-            <div class="profile-content">
-                <div class="text-section">
-                    <h1>DO IT MYSELF</h1>
-                    <p>Take control of your learning journey with tools and resources at your fingertips.</p>
-                </div>
-                <div class="image-section">
-                    <img src="image/do_it_myself.webp" alt="Do It Myself">
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <script>
-       function showSlide(index) {
-    const slides = document.querySelectorAll('.profile-content');
-    
-    // Hide all slides
-    slides.forEach(slide => {
-        slide.style.display = 'none';
+
+<div class="video-container" id="webcamContainer">
+    <video id="webcam" autoplay muted></video>
+</div>
+
+<!-- Include face-api.js -->
+<script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async function () {
+        const video = document.getElementById('webcam');
+
+        // Load face-api.js models
+        await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models');
+        await faceapi.nets.faceLandmark68Net.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models');
+        await faceapi.nets.faceExpressionNet.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models');
+
+        async function startWebcam() {
+            try {
+                // Request access to the user's webcam
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+            } catch (error) {
+                console.error('Error accessing webcam:', error);
+            }
+        }
+
+        video.addEventListener('play', () => {
+            const canvas = faceapi.createCanvasFromMedia(video);
+            document.getElementById('webcamContainer').append(canvas);
+            const displaySize = { width: video.width, height: video.height };
+            faceapi.matchDimensions(canvas, displaySize);
+
+            setInterval(async () => {
+                const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+                    .withFaceLandmarks()
+                    .withFaceExpressions();
+
+                const resizedDetections = faceapi.resizeResults(detections, displaySize);
+                canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+                faceapi.draw.drawDetections(canvas, resizedDetections);
+                faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+                faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+
+                if (detections.length > 0) {
+                    const isDistracted = checkForDistraction(detections[0].expressions);
+                    if (isDistracted) {
+                        alert('Please focus on your study!');
+                    }
+                }
+            }, 1000);
+        });
+
+        startWebcam();
     });
 
-    // Show the selected slide
-    slides[index].style.display = 'flex';
-}
+    // Function to check if the student is distracted based on facial expressions
+    function checkForDistraction(expressions) {
+        const distractionThreshold = 0.6;
+        return expressions.neutral < distractionThreshold || 
+               expressions.surprised > 0.5 ||
+               expressions.happy > 0.5 || 
+               expressions.sad > 0.5;
+    }
+</script>
 
-    </script>    
 </body>
 </html>

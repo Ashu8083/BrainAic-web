@@ -328,7 +328,7 @@ body{background-color: #a8bded4c;}
     width: 75%; /* Card covers 75% of the page */
     height: 400px; /* Adjust the height as needed */
     margin: 50px auto; /* Center the card horizontally */
-    background-image: url('image/'); /* Add your background image path */
+    background-image: url('image/ai.jpg'); /* Add your background image path */
     background-size: cover; /* Cover the entire card */
     background-position: center; /* Center the background image */
     position: relative; /* For positioning overlapping content */
@@ -343,7 +343,7 @@ body{background-color: #a8bded4c;}
 .card-content {
     max-width: 60%; /* Restricts the content width */
     text-align: center;
-    background: rgba(0, 0, 0, 0.6); /* Dark transparent background for better readability */
+    background: url("image/ai.jpg") center no-repeat; /* Dark transparent background for better readability */
     padding: 20px;
     border-radius: 10px;
 }
