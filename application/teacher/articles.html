@@ -38,10 +38,10 @@
                     <div id="Notes" class="button" onclick="getResponse('Response from Button 3', this)">Notes</div>
                     <div id="" class="button" onclick="getResponse('Response from Button 4', this)">Queries</div>
                 </div>
-
-                <div class="ask-me" onclick="startSpeechToSpeech()">Ask Me <img src="https://img.icons8.com/ios-filled/50/000000/microphone.png" class="microphone-icon"></div>
-                <div class="doubts" onclick="getResponse('Doubts button clicked', this)">Doubts</div>
-
+                <div class="div-doubt">
+                    <div class="ask-me" onclick="startSpeechToSpeech()">Ask Me <img src="https://img.icons8.com/ios-filled/50/000000/microphone.png" class="microphone-icon"></div>
+                    <div class="doubts" onclick="getResponse('Doubts button clicked', this)">Doubts</div>
+                    </div>
                 <input type="text" id="speechInput" class="speech-input" placeholder="Say something..." disabled>
                 <div id="speechOutput" class="speech-output">AI is thinking... <div class="spinner" id="loadingSpinner"></div></div>
             </div>
