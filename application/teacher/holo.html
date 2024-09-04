@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>VR Image Experience</title>
+    <!-- A-Frame Library -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        a-scene {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <!-- A-Frame Scene -->
+    <a-scene>
+        <!-- Skybox with panoramic image -->
+        <a-sky src="bassi ai.jpg" rotation="0 -90 0"></a-sky>
+
+        <!-- Optional: Add a simple entity for interaction or decoration -->
+        <a-entity 
+            position="0 1.6 -3"
+            text="value: Welcome to the VR Experience; color: white; align: center;">
+        </a-entity>
+
+        <!-- Optional: Add a basic VR controller -->
+        <a-entity 
+            id="left-hand" 
+            oculus-touch-controls="hand: left" 
+            teleport-controls="cameraRig: #cameraRig">
+        </a-entity>
+        <a-entity 
+            id="right-hand" 
+            oculus-touch-controls="hand: right" 
+            teleport-controls="cameraRig: #cameraRig">
+        </a-entity>
+
+        <!-- Camera -->
+        <a-camera id="cameraRig">
+            <a-cursor></a-cursor>
+        </a-camera>
+    </a-scene>
+</body>
+</html>

@@ -905,3 +905,49 @@ footer {
 .footer-bottom a:hover {
     color: #0f3d7e;
 }
+.content-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff; /* White background for the card */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit color from parent */
+    margin: 10px 0;
+}
+
+.content-card img {
+    width: 100%;
+    border-radius: 8px 8px 0 0; /* Rounded corners on top */
+    display: block;
+}
+
+.content-card div {
+    padding: 10px;
+}
+
+.content-card h2 {
+    color: #333; /* Dark text color */
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.content-card p {
+    color: #666; /* Lighter text color */
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.content-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.content-card:hover img {
+    opacity: 0.9; /* Slightly darken the image on hover */
+}
