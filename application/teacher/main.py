@@ -3,7 +3,7 @@ import requests
 import json
 from typing import Dict
 import boto3
-from botocore.exceptions import ClientError
+from botocore.exxceptions import ClientError
 import re
 import pandas as pd
 import os
